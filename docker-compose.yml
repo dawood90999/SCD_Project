@@ -1,21 +1,21 @@
-version: "3.8"
-
 services:
   frontend:
-    image: mern-frontend:latest
+    build: ./frontend
     ports:
       - "80:80"
+    environment:
+      - VITE_REACT_APP_API_URL=http://localhost:5000/api
     depends_on:
       - backend
     networks:
       - mern-network
 
   backend:
-    image: mern-backend:latest
+    build: ./backend
     ports:
       - "5000:5000"
     environment:
-      - MONGODB_URI=mongodb://mongodb:27017/mern-app
+      - MONGO_URI=mongodb://mongodb:27017/mern-app
     depends_on:
       - mongodb
     networks:
