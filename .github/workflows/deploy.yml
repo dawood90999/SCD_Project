@@ -79,5 +79,12 @@ jobs:
          $url = "http://$ip`:$port"
          Write-Output "✅ Frontend is accessible at: $url"
 
+      - name: Port forward backend service
+        shell: pwsh
+        run: |
+         Write-Output "Starting port-forwarding for backend service on 5000..."
+         Start-Process powershell -ArgumentList "kubectl port-forward svc/backend 5000:5000 -n mern-app"
+
+
 
      
