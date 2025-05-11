@@ -1,7 +1,7 @@
 MERN Application Deployment Journey - Phase 1
 ===========================================
 
-Sequence of Commands and Steps s:
+Sequence of Commands and Steps:
 ------------------------------
 
 1. Initial Setup:
