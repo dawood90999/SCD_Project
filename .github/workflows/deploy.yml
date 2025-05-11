@@ -15,65 +15,63 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Start Minikube
+        shell: pwsh
         run: |
           minikube start
           minikube status
 
       - name: Set up Docker to use Minikube's environment
+        shell: pwsh
         run: |
-          echo "Configuring Docker to use Minikube's daemon..."
-          eval $(minikube docker-env)
+          Write-Output "Configuring Docker to use Minikube's daemon..."
+          minikube -p minikube docker-env --shell powershell | Invoke-Expression
 
       - name: Build Frontend Docker image
+        shell: pwsh
         run: |
           cd frontend
           docker build -t dawoodhussain/mern-frontend:latest .
 
       - name: Build Backend Docker image
+        shell: pwsh
         run: |
           cd backend
           docker build -t dawoodhussain/mern-backend:latest .
 
       - name: Login to Docker Hub
+        shell: pwsh
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+          echo "$env:DOCKER_PASSWORD" | docker login -u "$env:DOCKER_USERNAME" --password-stdin
 
       - name: Push Frontend image to Docker Hub
+        shell: pwsh
         run: docker push dawoodhussain/mern-frontend:latest
 
       - name: Push Backend image to Docker Hub
+        shell: pwsh
         run: docker push dawoodhussain/mern-backend:latest
 
       - name: Deploy to Minikube
+        shell: pwsh
         run: |
-          # Create namespace if it doesn't exist
           kubectl create namespace mern-app --dry-run=client -o yaml | kubectl apply -f -
-
-          # Apply MongoDB deployment
           kubectl apply -f k8s/mongodb.yaml
-
-          # Apply Backend deployment
           kubectl apply -f k8s/backend.yaml
-
-          # Apply Frontend deployment
           kubectl apply -f k8s/frontend.yaml
-
-          # Wait for deployments to be ready
           kubectl rollout status deployment/mongodb -n mern-app
           kubectl rollout status deployment/backend -n mern-app
           kubectl rollout status deployment/frontend -n mern-app
 
       - name: Verify deployment
+        shell: pwsh
         run: |
-          echo "Checking pod status..."
           kubectl get pods -n mern-app
-          echo "Checking services..."
           kubectl get svc -n mern-app
 
       - name: Get Frontend URL
+        shell: pwsh
         run: |
-          echo "Frontend URL:"
           minikube service frontend -n mern-app --url
