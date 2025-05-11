@@ -71,4 +71,10 @@ jobs:
           kubectl get pods -n mern-app
           kubectl get svc -n mern-app
 
+      - name: Get Frontend URL
+        shell: pwsh
+        run: |
+          $url = minikube service frontend -n mern-app --url
+          Write-Output "✅ Frontend is accessible at: $url"
+
      
