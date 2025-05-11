@@ -1,0 +1,3745 @@
+[2025-05-11 04:37:40Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2025-05-11 04:37:40Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:40Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:40Z INFO HostContext] Well known config file 'Credentials': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\.credentials'
+[2025-05-11 04:37:40Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:40Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:40Z INFO HostContext] Well known config file 'Runner': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\.runner'
+[2025-05-11 04:37:40Z INFO Worker] Version: 2.323.0
+[2025-05-11 04:37:40Z INFO Worker] Commit: d8b82f44a9ec0258904d5869ae683c31d5aac299
+[2025-05-11 04:37:40Z INFO Worker] Culture: en-US
+[2025-05-11 04:37:40Z INFO Worker] UI Culture: en-US
+[2025-05-11 04:37:40Z INFO Worker] Waiting to receive the job message from the channel.
+[2025-05-11 04:37:40Z INFO ProcessChannel] Receiving message of length 28903, with hash '9b9aeaa56e3e7677db0f8bbe5d774c3f38608554335f550cdf2afba99f988116'
+[2025-05-11 04:37:40Z INFO Worker] Message received.
+[2025-05-11 04:37:41Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/deploy.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/checkout",
+        "ref": "v3",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 14,
+        "col": 15,
+        "lit": "Checkout code"
+      },
+      "contextName": "__actions_checkout",
+      "condition": "success()",
+      "id": "45c41f02-e244-5e65-e252-50a0c334bc2c",
+      "name": "__actions_checkout"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 17,
+        "col": 15,
+        "lit": "Start Minikube"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 18,
+              "col": 14,
+              "lit": "minikube start\nminikube status\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "1b38f2fa-52ea-50f7-9838-f7a6bdd57e53",
+      "name": "__run"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 22,
+        "col": 15,
+        "lit": "Set up Docker to use Minikube's environment"
+      },
+      "contextName": "__run_2",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 23,
+              "col": 14,
+              "lit": "echo \"Configuring Docker to use Minikube's daemon...\"\neval $(minikube docker-env)\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "58672ea0-caf5-50fe-3716-a9b7ff5776e2",
+      "name": "__run_2"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 27,
+        "col": 15,
+        "lit": "Build Frontend Docker image"
+      },
+      "contextName": "__run_3",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 28,
+              "col": 14,
+              "lit": "cd frontend\ndocker build -t dawoodhussain/mern-frontend:latest .\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "d47d9811-2301-50a2-c737-0d856c7f1af7",
+      "name": "__run_3"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 32,
+        "col": 15,
+        "lit": "Build Backend Docker image"
+      },
+      "contextName": "__run_4",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 33,
+              "col": 14,
+              "lit": "cd backend\ndocker build -t dawoodhussain/mern-backend:latest .\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "30344798-84b2-5009-baca-c5e22f6d795b",
+      "name": "__run_4"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 37,
+        "col": 15,
+        "lit": "Login to Docker Hub"
+      },
+      "contextName": "__run_5",
+      "environment": {
+        "type": 2,
+        "file": 1,
+        "line": 39,
+        "col": 11,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 39,
+              "col": 11,
+              "lit": "DOCKER_USERNAME"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 39,
+              "col": 28,
+              "expr": "secrets.DOCKER_USERNAME"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 40,
+              "col": 11,
+              "lit": "DOCKER_PASSWORD"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 40,
+              "col": 28,
+              "expr": "secrets.DOCKER_PASSWORD"
+            }
+          }
+        ]
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 41,
+              "col": 14,
+              "lit": "echo \"$DOCKER_PASSWORD\" | docker login -u \"$DOCKER_USERNAME\" --password-stdin\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "e13e0a19-1e8a-5f1b-ee8c-2f0ac564b0de",
+      "name": "__run_5"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 44,
+        "col": 15,
+        "lit": "Push Frontend image to Docker Hub"
+      },
+      "contextName": "__run_6",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 45,
+              "col": 14,
+              "lit": "docker push dawoodhussain/mern-frontend:latest"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "050361d6-6055-5cdc-1a34-a5e54d9458a5",
+      "name": "__run_6"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 47,
+        "col": 15,
+        "lit": "Push Backend image to Docker Hub"
+      },
+      "contextName": "__run_7",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 48,
+              "col": 14,
+              "lit": "docker push dawoodhussain/mern-backend:latest"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "07531b29-8341-5c00-d703-4193812ac26f",
+      "name": "__run_7"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 50,
+        "col": 15,
+        "lit": "Deploy to Minikube"
+      },
+      "contextName": "__run_8",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 51,
+              "col": 14,
+              "lit": "# Create namespace if it doesn't exist\nkubectl create namespace mern-app --dry-run=client -o yaml | kubectl apply -f -\n\n# Apply MongoDB deployment\nkubectl apply -f k8s/mongodb.yaml\n\n# Apply Backend deployment\nkubectl apply -f k8s/backend.yaml\n\n# Apply Frontend deployment\nkubectl apply -f k8s/frontend.yaml\n\n# Wait for deployments to be ready\nkubectl rollout status deployment/mongodb -n mern-app\nkubectl rollout status deployment/backend -n mern-app\nkubectl rollout status deployment/frontend -n mern-app\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "59509b54-89f6-5454-3324-599f634e6b38",
+      "name": "__run_8"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 69,
+        "col": 15,
+        "lit": "Verify deployment"
+      },
+      "contextName": "__run_9",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 70,
+              "col": 14,
+              "lit": "echo \"Checking pod status...\"\nkubectl get pods -n mern-app\necho \"Checking services...\"\nkubectl get svc -n mern-app\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "8bac48f5-9249-5854-3c31-74b7b72deebe",
+      "name": "__run_9"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 76,
+        "col": 15,
+        "lit": "Get Frontend URL"
+      },
+      "contextName": "__run_10",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 77,
+              "col": 14,
+              "lit": "echo \"Frontend URL:\"\nminikube service frontend -n mern-app --url\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "5d87f729-c11c-5303-d6f2-3d68a369e3d0",
+      "name": "__run_10"
+    }
+  ],
+  "variables": {
+    "DOCKER_PASSWORD": {
+      "value": "***",
+      "isSecret": true
+    },
+    "DOCKER_USERNAME": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.isScheduled": {
+      "value": "False"
+    },
+    "system.servertype": {
+      "value": "Hosted"
+    },
+    "system.culture": {
+      "value": ""
+    },
+    "system.pipelineStartTime": {
+      "value": "2025-05-11 04:37:38+00:00"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode16": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode20": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode12Action": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode16Action": {
+      "value": "true"
+    },
+    "DistributedTask.LogTemplateErrorsAsDebugMessages": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "DistributedTask.DeprecateStepOutputCommands": {
+      "value": "true"
+    },
+    "DistributedTask.UseWhich2": {
+      "value": "true"
+    },
+    "DistributedTask.DetailUntarFailure": {
+      "value": "true"
+    },
+    "DistributedTask.UseActionArchiveCache": {
+      "value": "true"
+    },
+    "DistributedTask.EnableJobServerQueueTelemetry": {
+      "value": "true"
+    },
+    "DistributedTask.MarkJobAsFailedOnWorkerCrash": {
+      "value": "true"
+    },
+    "Actions.EnableHttpRedirects": {
+      "value": "true"
+    },
+    "system.teamProjectId": {
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    "build.buildId": {
+      "value": "2"
+    },
+    "build.containerId": {
+      "value": "8615253"
+    },
+    "build.allowCreateArtifacts": {
+      "value": "False"
+    },
+    "system.workflowFilePath": {
+      "value": ".github/workflows/deploy.yml"
+    },
+    "system.phaseDisplayName": {
+      "value": "build-deploy"
+    },
+    "system.phaseId": {
+      "value": "e27398a7-4d1f-53cc-562e-c6ba0cf9ff01"
+    },
+    "system.phaseName": {
+      "value": "build-deploy"
+    },
+    "system.phaseAttempt": {
+      "value": "1"
+    },
+    "system.jobIdentifier": {
+      "value": "build-deploy.__default"
+    },
+    "system.jobAttempt": {
+      "value": "1"
+    },
+    "System.JobPositionInPhase": {
+      "value": "1"
+    },
+    "System.TotalJobsInPhase": {
+      "value": "1"
+    },
+    "system.github.job": {
+      "value": "build-deploy"
+    },
+    "system.jobDisplayName": {
+      "value": "build-deploy"
+    },
+    "system.jobId": {
+      "value": "2fadb47e-1d34-541b-cb18-f3a121ea6ec1"
+    },
+    "system.jobName": {
+      "value": "__default"
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Contents\":\"read\",\"Metadata\":\"read\",\"Packages\":\"read\"}"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.runnerEnvironment": {
+      "value": "self-hosted"
+    },
+    "system.github.results_endpoint": {
+      "value": "https://results-receiver.actions.githubusercontent.com/"
+    },
+    "system.github.results_upload_with_sdk": {
+      "value": "True"
+    },
+    "actions_uses_cache_service_v2": {
+      "value": "True"
+    },
+    "system.testDotNet8Compatibility": {
+      "value": "true"
+    },
+    "system.dotNet8CompatibilityOutputLength": {
+      "value": "200"
+    },
+    "system.dotNet8CompatibilityOutputPattern": {
+      "value": "GLIBCXX"
+    },
+    "system.dotNet8CompatibilityWarning": {
+      "value": "The Actions runner will no longer support your OS version on November 1, 2024. Please upgrade to a supported version. For information, refer https://github.blog/changelog/2024-08-19-notice-of-upcoming-deprecations-and-breaking-changes-in-github-actions-runners/"
+    },
+    "system.orchestrationId": {
+      "value": "176c3ff7-fc8c-4385-9160-ee2d5b48b3d3.build-deploy.__default"
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "PipelineAgentJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "Actions",
+    "version": 41,
+    "planId": "176c3ff7-fc8c-4385-9160-ee2d5b48b3d3",
+    "planGroup": "Actions:00000000-0000-0000-0000-000000000000:1",
+    "artifactUri": "vstfs:///Build/Build/2",
+    "artifactLocation": null,
+    "definition": {
+      "_links": {},
+      "id": 3,
+      "name": "SCD_Project"
+    },
+    "owner": {
+      "_links": {},
+      "id": 3,
+      "name": "***"
+    }
+  },
+  "timeline": {
+    "id": "176c3ff7-fc8c-4385-9160-ee2d5b48b3d3",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "2fadb47e-1d34-541b-cb18-f3a121ea6ec1",
+  "jobDisplayName": "build-deploy",
+  "jobName": "__default",
+  "requestId": 2,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "7e383913-8a46-4534-8203-47be158cd366",
+          "ServerName": "IamalUYtBpNEnqo2CXrE18SCZlE3AQ2lhf3nxiA3c92T68CMlv",
+          "CacheServerUrl": "https://acghubeus2.actions.githubusercontent.com/IamalUYtBpNEnqo2CXrE18SCZlE3AQ2lhf3nxiA3c92T68CMlv/",
+          "FeedStreamUrl": "https://results-receiver.actions.githubusercontent.com/_ws/ingest.sock",
+          "ResultsServiceUrl": "https://results-receiver.actions.githubusercontent.com/",
+          "ConnectivityChecks": "[\"https://acghubeus0.actions.githubusercontent.com/_apis/health\",\"https://broker.actions.githubusercontent.com/health\",\"https://results-receiver.actions.githubusercontent.com/health\",\"https://pkg.actions.githubusercontent.com/health\",\"https://actions-results-receiver-production.githubapp.com/health\",\"https://run-actions-2-azure-eastus.actions.githubusercontent.com/12/health\",\"https://pipelinesghubeus7.actions.githubusercontent.com/_apis/health\"]"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://pipelinesghubeus7.actions.githubusercontent.com/IamalUYtBpNEnqo2CXrE18SCZlE3AQ2lhf3nxiA3c92T68CMlv/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": ***
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/master"
+        },
+        {
+          "k": "sha",
+          "v": "28dce3c3fd12b87c2bcc61136ba65c9ca4d042a2"
+        },
+        {
+          "k": "repository",
+          "v": "***/SCD_Project"
+        },
+        {
+          "k": "repository_owner",
+          "v": "***"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "127896325"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/***/SCD_Project.git"
+        },
+        {
+          "k": "run_id",
+          "v": "14952324890"
+        },
+        {
+          "k": "run_number",
+          "v": "2"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "1"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "public"
+        },
+        {
+          "k": "repo-self-hosted-runners-disabled",
+          "v": false
+        },
+        {
+          "k": "enterprise-managed-business-id",
+          "v": ""
+        },
+        {
+          "k": "repository_id",
+          "v": "981405121"
+        },
+        {
+          "k": "actor_id",
+          "v": "127896325"
+        },
+        {
+          "k": "actor",
+          "v": "***"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "***"
+        },
+        {
+          "k": "workflow",
+          "v": "Build and Deploy MERN App to Minikube"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "28dce3c3fd12b87c2bcc61136ba65c9ca4d042a2"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "6eed1aaa41fab022e5df396b681e55d341eeeb3a"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "127896325+***@users.noreply.github.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Dawood_Hussain"
+                              },
+                              {
+                                "k": "username",
+                                "v": "***"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "127896325+***@users.noreply.github.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Dawood_Hussain"
+                              },
+                              {
+                                "k": "username",
+                                "v": "***"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "28dce3c3fd12b87c2bcc61136ba65c9ca4d042a2"
+                        },
+                        {
+                          "k": "message",
+                          "v": "Github Action and Kubernetes files"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2025-05-11T09:34:09+05:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "49b09d529d9aa0722f768321e6b826bcb8892225"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/***/SCD_Project/commit/28dce3c3fd12b87c2bcc61136ba65c9ca4d042a2"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/***/SCD_Project/compare/6eed1aaa41fa...28dce3c3fd12"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "127896325+***@users.noreply.github.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Dawood_Hussain"
+                          },
+                          {
+                            "k": "username",
+                            "v": "***"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "127896325+***@users.noreply.github.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Dawood_Hussain"
+                          },
+                          {
+                            "k": "username",
+                            "v": "***"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "28dce3c3fd12b87c2bcc61136ba65c9ca4d042a2"
+                    },
+                    {
+                      "k": "message",
+                      "v": "Github Action and Kubernetes files"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2025-05-11T09:34:09+05:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "49b09d529d9aa0722f768321e6b826bcb8892225"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/***/SCD_Project/commit/28dce3c3fd12b87c2bcc61136ba65c9ca4d042a2"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "127896325+***@users.noreply.github.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "***"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/master"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/***/SCD_Project.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1746932714.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "master"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": "SCD Final Project"
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "***/SCD_Project"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/***/SCD_Project.git"
+                    },
+                    {
+                      "k": "has_discussions",
+                      "v": false
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/***/SCD_Project"
+                    },
+                    {
+                      "k": "id",
+                      "v": 981405121.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "TypeScript"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "master"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "SCD_Project"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDOOn8NwQ"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/127896325?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "127896325+***@users.noreply.github.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/***/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/***/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/***/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/***/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/***"
+                          },
+                          {
+                            "k": "id",
+                            "v": 127896325.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "***"
+                          },
+                          {
+                            "k": "name",
+                            "v": "***"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "U_kgDOB5-LBQ"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/***/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/***/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/***/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/***/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/***/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/***"
+                          },
+                          {
+                            "k": "user_view_type",
+                            "v": "public"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1746938088.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 89.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:***/SCD_Project.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/***/SCD_Project"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/***/SCD_Project/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2025-05-11T03:40:19Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/repos/***/SCD_Project"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "public"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/127896325?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/***/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/***/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/***/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/***/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/***"
+                    },
+                    {
+                      "k": "id",
+                      "v": 127896325.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "***"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "U_kgDOB5-LBQ"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/***/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/***/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/***/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/***/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/***/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/***"
+                    },
+                    {
+                      "k": "user_view_type",
+                      "v": "public"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "master"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        },
+        {
+          "k": "workflow_ref",
+          "v": "***/SCD_Project/.github/workflows/deploy.yml@refs/heads/master"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "28dce3c3fd12b87c2bcc61136ba65c9ca4d042a2"
+        }
+      ]
+    },
+    "run-feature-flags": {
+      "t": 2,
+      "d": [
+        {
+          "k": "actions_stream_logs_via_results_service",
+          "v": true
+        },
+        {
+          "k": "actions_use_results_service",
+          "v": true
+        },
+        {
+          "k": "actions_uses_cache_service_v2",
+          "v": true
+        },
+        {
+          "k": "block_artifacts_v3_exempted",
+          "v": false
+        },
+        {
+          "k": "larger_runners_custom_image_generation",
+          "v": false
+        }
+      ]
+    },
+    "partialrerun": false,
+    "needs": {
+      "t": 2
+    },
+    "vars": null,
+    "inputs": {
+      "t": 2
+    },
+    "matrix": null,
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    },
+    "EndpointsOverride": null
+  }
+}
+[2025-05-11 04:37:41Z INFO JobRunner] Job ID 2fadb47e-1d34-541b-cb18-f3a121ea6ec1
+[2025-05-11 04:37:41Z INFO ConfigurationStore] currentAssemblyLocation: D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin\Runner.Worker.dll
+[2025-05-11 04:37:41Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:41Z INFO ConfigurationStore] binPath: D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin
+[2025-05-11 04:37:41Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:41Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:41Z INFO ConfigurationStore] RootFolder: D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner
+[2025-05-11 04:37:41Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:41Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:41Z INFO HostContext] Well known config file 'Runner': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\.runner'
+[2025-05-11 04:37:41Z INFO ConfigurationStore] ConfigFilePath: D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\.runner
+[2025-05-11 04:37:41Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:41Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:41Z INFO HostContext] Well known config file 'MigratedRunner': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\.runner_migrated'
+[2025-05-11 04:37:41Z INFO ConfigurationStore] MigratedConfigFilePath: D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\.runner_migrated
+[2025-05-11 04:37:41Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:41Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:41Z INFO HostContext] Well known config file 'Credentials': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\.credentials'
+[2025-05-11 04:37:41Z INFO ConfigurationStore] CredFilePath: D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\.credentials
+[2025-05-11 04:37:41Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:41Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:41Z INFO HostContext] Well known config file 'MigratedCredentials': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\.credentials_migrated'
+[2025-05-11 04:37:41Z INFO ConfigurationStore] MigratedCredFilePath: D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\.credentials_migrated
+[2025-05-11 04:37:41Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:41Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:41Z INFO HostContext] Well known config file 'Service': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\.service'
+[2025-05-11 04:37:41Z INFO ConfigurationStore] ServiceConfigFilePath: D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\.service
+[2025-05-11 04:37:41Z INFO ConfigurationStore] Read setting file: 307 chars
+[2025-05-11 04:37:41Z INFO JobRunner] Creating job server with URL: https://pipelinesghubeus7.actions.githubusercontent.com/IamalUYtBpNEnqo2CXrE18SCZlE3AQ2lhf3nxiA3c92T68CMlv/
+[2025-05-11 04:37:41Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2025-05-11 04:37:41Z INFO Worker] Listening for cancel message from the channel.
+[2025-05-11 04:37:41Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2025-05-11 04:37:42Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2025-05-11 04:37:42Z INFO JobServer] Creating websocket client ...wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock
+[2025-05-11 04:37:42Z INFO JobServer] Attempting to start websocket client with delay 00:00:00.
+[2025-05-11 04:37:42Z INFO JobServerQueue] Initializing results client
+[2025-05-11 04:37:42Z INFO JobServerQueue] Start process web console line queue.
+[2025-05-11 04:37:42Z INFO JobServerQueue] Start process file upload queue.
+[2025-05-11 04:37:42Z INFO JobServerQueue] Start results file upload queue.
+[2025-05-11 04:37:42Z INFO JobServerQueue] Starting results-based upload queue...
+[2025-05-11 04:37:42Z INFO JobServerQueue] Start process timeline update queue.
+[2025-05-11 04:37:42Z INFO ExecutionContext] Initialize GitHub context
+[2025-05-11 04:37:42Z INFO ExecutionContext] Initialize Env context
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:42Z INFO JobRunner] Starting the job execution context.
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:42Z INFO JobRunner] Validating directory permissions for: 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Tools': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_tool'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Temp': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp'
+[2025-05-11 04:37:42Z INFO JobRunner] Getting job extension.
+[2025-05-11 04:37:42Z INFO JobRunner] Initialize job. Getting all job steps.
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:42Z INFO HostContext] Well known config file 'Credentials': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\.credentials'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:42Z INFO HostContext] Well known config file 'SetupInfo': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\.setup_info'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:42Z INFO PipelineDirectoryManager] Loading tracking config if exists: D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_PipelineMapping\***/SCD_Project\PipelineFolder.json
+[2025-05-11 04:37:42Z INFO PipelineDirectoryManager] Updating job run properties.
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:42Z INFO JobExtension] Downloading actions
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:42Z INFO HostContext] Well known directory 'Actions': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions'
+[2025-05-11 04:37:43Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:43Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:43Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:43Z INFO HostContext] Well known directory 'Actions': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions'
+[2025-05-11 04:37:43Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:43Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:43Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:43Z INFO HostContext] Well known directory 'Actions': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions'
+[2025-05-11 04:37:43Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/checkout/zipball/f43a0e5ff2bd294095638e18286ca9a3d1956744' into D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions\_temp_eb79d5bc-241a-42bf-93fc-557acffef42f\3bced2e8-c4c9-4c09-ac66-a82967de36cc.zip.
+[2025-05-11 04:37:43Z INFO JobServer] Successfully started websocket client.
+[2025-05-11 04:37:43Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9fbe96b1-e143-4bd9-a17e-edc90126e0f2', success rate: 1/1.
+[2025-05-11 04:37:43Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9fbe96b1-e143-4bd9-a17e-edc90126e0f2', success rate: 1/1.
+[2025-05-11 04:37:44Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2025-05-11 04:37:45Z INFO ActionManager] Request URL: https://api.github.com/repos/actions/checkout/zipball/f43a0e5ff2bd294095638e18286ca9a3d1956744 X-GitHub-Request-Id: B7D1:253396:1CFCB:10CDC8:6820299B Http Status: OK
+[2025-05-11 04:37:45Z INFO ActionManager] Finished getting action repository.
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Actions': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions'
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Actions': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions'
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 67,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 68,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-05-11 04:37:45Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Actions': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions'
+[2025-05-11 04:37:45Z INFO ActionManager] Load action that reference repository from 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions\actions\checkout\v3'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Actions': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions'
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 67,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 68,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-05-11 04:37:45Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-05-11 04:37:45Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-05-11 04:37:45Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-05-11 04:37:45Z INFO JobExtension] Adding .
+[2025-05-11 04:37:45Z INFO JobExtension] Adding .
+[2025-05-11 04:37:45Z INFO JobExtension] Adding .
+[2025-05-11 04:37:45Z INFO JobExtension] Adding .
+[2025-05-11 04:37:45Z INFO JobExtension] Adding .
+[2025-05-11 04:37:45Z INFO JobExtension] Adding .
+[2025-05-11 04:37:45Z INFO JobExtension] Adding .
+[2025-05-11 04:37:45Z INFO JobExtension] Adding .
+[2025-05-11 04:37:45Z INFO JobExtension] Adding .
+[2025-05-11 04:37:45Z INFO JobExtension] Adding .
+[2025-05-11 04:37:45Z INFO JobExtension] Adding .
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO JobExtension] Total accessible running process: 322.
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:45Z INFO JobExtension] Start checking server connectivity.
+[2025-05-11 04:37:45Z INFO JobExtension] Check server connectivity for https://acghubeus0.actions.githubusercontent.com/_apis/health.
+[2025-05-11 04:37:45Z INFO JobExtension] Check server connectivity for https://broker.actions.githubusercontent.com/health.
+[2025-05-11 04:37:45Z INFO JobExtension] Check server connectivity for https://results-receiver.actions.githubusercontent.com/health.
+[2025-05-11 04:37:45Z INFO JobExtension] Check server connectivity for https://pkg.actions.githubusercontent.com/health.
+[2025-05-11 04:37:45Z INFO JobExtension] Check server connectivity for https://actions-results-receiver-production.githubapp.com/health.
+[2025-05-11 04:37:45Z INFO JobExtension] Check server connectivity for https://run-actions-2-azure-eastus.actions.githubusercontent.com/12/health.
+[2025-05-11 04:37:45Z INFO JobExtension] Check server connectivity for https://pipelinesghubeus7.actions.githubusercontent.com/_apis/health.
+[2025-05-11 04:37:45Z INFO JobExtension] Start checking service connectivity in background.
+[2025-05-11 04:37:45Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "9fbe96b1-e143-4bd9-a17e-edc90126e0f2",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 3,
+  "startTime": "2025-05-11T04:37:42.4829406Z",
+  "finishTime": "2025-05-11T04:37:45.4238495Z"
+}.
+[2025-05-11 04:37:45Z INFO JobRunner] Total job steps: 11.
+[2025-05-11 04:37:45Z INFO JobRunner] Run all job steps.
+[2025-05-11 04:37:45Z INFO StepsRunner] Processing step: DisplayName='Checkout code'
+[2025-05-11 04:37:45Z INFO StepsRunner] Evaluating: success()
+[2025-05-11 04:37:45Z INFO StepsRunner] Result: true
+[2025-05-11 04:37:45Z INFO StepsRunner] Starting the step.
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:45Z INFO StepsRunner] Which2: 'chcp'
+[2025-05-11 04:37:45Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper] Starting process:
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   Working directory: 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper] Process started with process id 14904, waiting for process exit.
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper] Finished process 14904 with exit code 0, and elapsed time 00:00:00.0106893.
+[2025-05-11 04:37:45Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Actions': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions'
+[2025-05-11 04:37:45Z INFO ActionManager] Load action that reference repository from 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions\actions\checkout\v3'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Actions': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions'
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 67,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 68,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-05-11 04:37:45Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-05-11 04:37:45Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-05-11 04:37:45Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-05-11 04:37:45Z INFO ExecutionContext] Reserve record order 13 to 24 for post job actions.
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Temp': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp'
+[2025-05-11 04:37:45Z INFO ExecutionContext] Write event payload to D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp\_github_workflow\event.json
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Temp': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp'
+[2025-05-11 04:37:45Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateFileCommand, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputFileCommand, Runner.Worker
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "***/SCD_Project"
+}
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 50,
+  "col": 14,
+  "lit": "true"
+}
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 55,
+  "col": 14,
+  "lit": "true"
+}
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 60,
+  "col": 14,
+  "lit": ""
+}
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": "true"
+}
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 67,
+  "col": 14,
+  "lit": "1"
+}
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 70,
+  "col": 14,
+  "lit": "false"
+}
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "false"
+}
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "false"
+}
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "true"
+}
+[2025-05-11 04:37:45Z INFO ActionManifestManager] Input 'github-server-url': default value evaluate result: ""
+[2025-05-11 04:37:45Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2025-05-11 04:37:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2025-05-11 04:37:45Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-05-11 04:37:45Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-05-11 04:37:45Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-05-11 04:37:45Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-05-11 04:37:45Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-05-11 04:37:45Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-05-11 04:37:45Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-05-11 04:37:45Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-05-11 04:37:45Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-05-11 04:37:45Z INFO ActionCommandManager] Register action command extension for command error
+[2025-05-11 04:37:45Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-05-11 04:37:45Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-05-11 04:37:45Z INFO ActionCommandManager] Register action command extension for command group
+[2025-05-11 04:37:45Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-05-11 04:37:45Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-05-11 04:37:45Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-05-11 04:37:45Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag\blocks\176c3ff7-fc8c-4385-9160-ee2d5b48b3d3_9fbe96b1-e143-4bd9-a17e-edc90126e0f2.1
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:45Z INFO HostContext] Well known directory 'Externals': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\externals'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper] Starting process:
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   File name: 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\externals\node20\bin\node.exe'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   Arguments: '"D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions\actions\checkout\v3\dist/index.js"'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   Working directory: 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\SCD_Project\SCD_Project'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-05-11 04:37:45Z INFO ProcessInvokerWrapper] Process started with process id 2268, waiting for process exit.
+[2025-05-11 04:37:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9fbe96b1-e143-4bd9-a17e-edc90126e0f2', success rate: 1/1.
+[2025-05-11 04:37:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:37:45Z INFO AddMaskCommandExtension] Add new secret mask with length of 76
+[2025-05-11 04:37:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:37:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:37:46Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-05-11 04:37:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:37:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:37:47Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2025-05-11 04:37:48Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:37:49Z INFO JobServerQueue] Try to append 3 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 3/3.
+[2025-05-11 04:37:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:37:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:37:51Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:37:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:37:53Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:37:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:37:55Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:37:55Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:37:55Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:37:55Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:37:56Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:37:57Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:37:58Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:00Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:00Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:02Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:03Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:04Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:04Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:05Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:38:05Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:38:05Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:38:05Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:07Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:08Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:09Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:11Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:12Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:12Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:12Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:12Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:13Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:13Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:13Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:13Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:14Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:14Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:14Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:15Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:15Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:15Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:38:15Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:38:15Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:38:15Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:16Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:16Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:16Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:16Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:17Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:17Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:19Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:20Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:21Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:22Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:22Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:23Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:24Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:24Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:25Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:38:25Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:38:25Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:38:26Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper] Finished process 2268 with exit code 0, and elapsed time 00:00:40.8358181.
+[2025-05-11 04:38:26Z INFO CreateStepSummaryCommand] Step Summary file (D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp\_runner_file_commands\step_summary_d27309d5-ff4e-4086-af0a-df0ae612e4fa) is empty; skipping attachment upload
+[2025-05-11 04:38:26Z INFO StepsRunner] Step result: 
+[2025-05-11 04:38:26Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v3",
+  "type": "node20",
+  "stage": "Main",
+  "stepId": "45c41f02-e244-5e65-e252-50a0c334bc2c",
+  "stepContextName": "__actions_checkout",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 41,
+  "startTime": "2025-05-11T04:37:45.4321119Z",
+  "finishTime": "2025-05-11T04:38:26.3287766Z"
+}.
+[2025-05-11 04:38:26Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2025-05-11 04:38:26Z INFO StepsRunner] Current state: job state = ''
+[2025-05-11 04:38:26Z INFO StepsRunner] Processing step: DisplayName='Start Minikube'
+[2025-05-11 04:38:26Z INFO StepsRunner] Evaluating: success()
+[2025-05-11 04:38:26Z INFO StepsRunner] Result: true
+[2025-05-11 04:38:26Z INFO StepsRunner] Starting the step.
+[2025-05-11 04:38:26Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:38:26Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:38:26Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:38:26Z INFO StepsRunner] Which2: 'chcp'
+[2025-05-11 04:38:26Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper] Starting process:
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   Working directory: 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper] Process started with process id 18412, waiting for process exit.
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper] Finished process 18412 with exit code 0, and elapsed time 00:00:00.0094181.
+[2025-05-11 04:38:26Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2025-05-11 04:38:26Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:38:26Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:38:26Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:38:26Z INFO HostContext] Well known directory 'Temp': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp'
+[2025-05-11 04:38:26Z INFO ExecutionContext] Write event payload to D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp\_github_workflow\event.json
+[2025-05-11 04:38:26Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:38:26Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:38:26Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:38:26Z INFO HostContext] Well known directory 'Temp': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp'
+[2025-05-11 04:38:26Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-05-11 04:38:26Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-05-11 04:38:26Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-05-11 04:38:26Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-05-11 04:38:26Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-05-11 04:38:26Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-05-11 04:38:26Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-05-11 04:38:26Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-05-11 04:38:26Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-05-11 04:38:26Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-05-11 04:38:26Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-05-11 04:38:26Z INFO ActionCommandManager] Register action command extension for command error
+[2025-05-11 04:38:26Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-05-11 04:38:26Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-05-11 04:38:26Z INFO ActionCommandManager] Register action command extension for command group
+[2025-05-11 04:38:26Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-05-11 04:38:26Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-05-11 04:38:26Z INFO ScriptHandler] Which2: 'pwsh'
+[2025-05-11 04:38:26Z INFO ScriptHandler] Location: 'C:\Program Files\PowerShell\7\pwsh.EXE'
+[2025-05-11 04:38:26Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:38:26Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:38:26Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:38:26Z INFO HostContext] Well known directory 'Temp': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp'
+[2025-05-11 04:38:26Z INFO ScriptHandler] Which2: 'pwsh'
+[2025-05-11 04:38:26Z INFO ScriptHandler] Location: 'C:\Program Files\PowerShell\7\pwsh.EXE'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper] Starting process:
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   File name: 'C:\Program Files\PowerShell\7\pwsh.EXE'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp\2c6e57ff-0654-457c-9a45-26e90b67098a.ps1'"'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   Working directory: 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\SCD_Project\SCD_Project'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-05-11 04:38:26Z INFO ProcessInvokerWrapper] Process started with process id 20804, waiting for process exit.
+[2025-05-11 04:38:26Z INFO JobServerQueue] Try to append 1 batches web console lines for record '45c41f02-e244-5e65-e252-50a0c334bc2c', success rate: 1/1.
+[2025-05-11 04:38:26Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1b38f2fa-52ea-50f7-9838-f7a6bdd57e53', success rate: 1/1.
+[2025-05-11 04:38:26Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1b38f2fa-52ea-50f7-9838-f7a6bdd57e53', success rate: 1/1.
+[2025-05-11 04:38:27Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-05-11 04:38:27Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag\blocks\176c3ff7-fc8c-4385-9160-ee2d5b48b3d3_45c41f02-e244-5e65-e252-50a0c334bc2c.1
+[2025-05-11 04:38:27Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1b38f2fa-52ea-50f7-9838-f7a6bdd57e53', success rate: 1/1.
+[2025-05-11 04:38:27Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-05-11 04:38:27Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1b38f2fa-52ea-50f7-9838-f7a6bdd57e53', success rate: 1/1.
+[2025-05-11 04:38:29Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2025-05-11 04:38:35Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:38:35Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:38:35Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:38:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1b38f2fa-52ea-50f7-9838-f7a6bdd57e53', success rate: 1/1.
+[2025-05-11 04:38:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1b38f2fa-52ea-50f7-9838-f7a6bdd57e53', success rate: 1/1.
+[2025-05-11 04:38:45Z INFO JobServerQueue] Stop aggressive process web console line queue.
+[2025-05-11 04:38:45Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:38:45Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:38:45Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:38:55Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:38:55Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:38:55Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:38:58Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1b38f2fa-52ea-50f7-9838-f7a6bdd57e53', success rate: 1/1.
+[2025-05-11 04:39:01Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1b38f2fa-52ea-50f7-9838-f7a6bdd57e53', success rate: 1/1.
+[2025-05-11 04:39:05Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:39:05Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:39:05Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:39:15Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:39:15Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:39:15Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:39:24Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1b38f2fa-52ea-50f7-9838-f7a6bdd57e53', success rate: 1/1.
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper] Finished process 20804 with exit code 0, and elapsed time 00:00:58.5253545.
+[2025-05-11 04:39:24Z INFO CreateStepSummaryCommand] Step Summary file (D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp\_runner_file_commands\step_summary_d114e948-da1a-4dfb-987c-4cd902225c3c) is empty; skipping attachment upload
+[2025-05-11 04:39:24Z INFO StepsRunner] Step result: 
+[2025-05-11 04:39:24Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "pwsh",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "1b38f2fa-52ea-50f7-9838-f7a6bdd57e53",
+  "stepContextName": "__run",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 59,
+  "startTime": "2025-05-11T04:38:26.3295635Z",
+  "finishTime": "2025-05-11T04:39:24.8843939Z"
+}.
+[2025-05-11 04:39:24Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2025-05-11 04:39:24Z INFO StepsRunner] Current state: job state = ''
+[2025-05-11 04:39:24Z INFO StepsRunner] Processing step: DisplayName='Set up Docker to use Minikube's environment'
+[2025-05-11 04:39:24Z INFO StepsRunner] Evaluating: success()
+[2025-05-11 04:39:24Z INFO StepsRunner] Result: true
+[2025-05-11 04:39:24Z INFO StepsRunner] Starting the step.
+[2025-05-11 04:39:24Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:39:24Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:39:24Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:39:24Z INFO StepsRunner] Which2: 'chcp'
+[2025-05-11 04:39:24Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper] Starting process:
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   Working directory: 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper] Process started with process id 23596, waiting for process exit.
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper] Finished process 23596 with exit code 0, and elapsed time 00:00:00.0129811.
+[2025-05-11 04:39:24Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2025-05-11 04:39:24Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:39:24Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:39:24Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:39:24Z INFO HostContext] Well known directory 'Temp': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp'
+[2025-05-11 04:39:24Z INFO ExecutionContext] Write event payload to D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp\_github_workflow\event.json
+[2025-05-11 04:39:24Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:39:24Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:39:24Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:39:24Z INFO HostContext] Well known directory 'Temp': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp'
+[2025-05-11 04:39:24Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-05-11 04:39:24Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-05-11 04:39:24Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-05-11 04:39:24Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-05-11 04:39:24Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-05-11 04:39:24Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-05-11 04:39:24Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-05-11 04:39:24Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-05-11 04:39:24Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-05-11 04:39:24Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-05-11 04:39:24Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-05-11 04:39:24Z INFO ActionCommandManager] Register action command extension for command error
+[2025-05-11 04:39:24Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-05-11 04:39:24Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-05-11 04:39:24Z INFO ActionCommandManager] Register action command extension for command group
+[2025-05-11 04:39:24Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-05-11 04:39:24Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-05-11 04:39:24Z INFO ScriptHandler] Which2: 'pwsh'
+[2025-05-11 04:39:24Z INFO ScriptHandler] Location: 'C:\Program Files\PowerShell\7\pwsh.EXE'
+[2025-05-11 04:39:24Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:39:24Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:39:24Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:39:24Z INFO HostContext] Well known directory 'Temp': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp'
+[2025-05-11 04:39:24Z INFO ScriptHandler] Which2: 'pwsh'
+[2025-05-11 04:39:24Z INFO ScriptHandler] Location: 'C:\Program Files\PowerShell\7\pwsh.EXE'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper] Starting process:
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   File name: 'C:\Program Files\PowerShell\7\pwsh.EXE'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp\6f82602d-69f2-4edb-b9b7-6cd235c422cf.ps1'"'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   Working directory: 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\SCD_Project\SCD_Project'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-05-11 04:39:24Z INFO ProcessInvokerWrapper] Process started with process id 20508, waiting for process exit.
+[2025-05-11 04:39:24Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-05-11 04:39:24Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag\blocks\176c3ff7-fc8c-4385-9160-ee2d5b48b3d3_1b38f2fa-52ea-50f7-9838-f7a6bdd57e53.1
+[2025-05-11 04:39:25Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1b38f2fa-52ea-50f7-9838-f7a6bdd57e53', success rate: 1/1.
+[2025-05-11 04:39:25Z INFO JobServerQueue] Try to append 1 batches web console lines for record '58672ea0-caf5-50fe-3716-a9b7ff5776e2', success rate: 1/1.
+[2025-05-11 04:39:25Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:39:25Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:39:25Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:39:25Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-05-11 04:39:25Z INFO JobServerQueue] Try to append 1 batches web console lines for record '58672ea0-caf5-50fe-3716-a9b7ff5776e2', success rate: 1/1.
+[2025-05-11 04:39:25Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2025-05-11 04:39:26Z INFO JobServerQueue] Try to append 1 batches web console lines for record '58672ea0-caf5-50fe-3716-a9b7ff5776e2', success rate: 1/1.
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper] Finished process 20508 with exit code 1, and elapsed time 00:00:01.2345691.
+[2025-05-11 04:39:26Z INFO CreateStepSummaryCommand] Step Summary file (D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp\_runner_file_commands\step_summary_b33467d8-f4b5-4e47-a165-c47c121963e8) is empty; skipping attachment upload
+[2025-05-11 04:39:26Z INFO StepsRunner] Step result: Failed
+[2025-05-11 04:39:26Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "pwsh",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "58672ea0-caf5-50fe-3716-a9b7ff5776e2",
+  "stepContextName": "__run_2",
+  "result": "failed",
+  "errorMessages": [
+    "Process completed with exit code 1."
+  ],
+  "executionTimeInSeconds": 2,
+  "startTime": "2025-05-11T04:39:24.885129Z",
+  "finishTime": "2025-05-11T04:39:26.1419026Z"
+}.
+[2025-05-11 04:39:26Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2025-05-11 04:39:26Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-05-11 04:39:26Z INFO StepsRunner] Processing step: DisplayName='Build Frontend Docker image'
+[2025-05-11 04:39:26Z INFO StepsRunner] Evaluating: success()
+[2025-05-11 04:39:26Z INFO StepsRunner] Result: false
+[2025-05-11 04:39:26Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-05-11 04:39:26Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-05-11 04:39:26Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-05-11 04:39:26Z INFO StepsRunner] Processing step: DisplayName='Build Backend Docker image'
+[2025-05-11 04:39:26Z INFO StepsRunner] Evaluating: success()
+[2025-05-11 04:39:26Z INFO StepsRunner] Result: false
+[2025-05-11 04:39:26Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-05-11 04:39:26Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-05-11 04:39:26Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-05-11 04:39:26Z INFO StepsRunner] Processing step: DisplayName='Login to Docker Hub'
+[2025-05-11 04:39:26Z INFO StepsRunner] Evaluating: success()
+[2025-05-11 04:39:26Z INFO StepsRunner] Result: false
+[2025-05-11 04:39:26Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-05-11 04:39:26Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-05-11 04:39:26Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-05-11 04:39:26Z INFO StepsRunner] Processing step: DisplayName='Push Frontend image to Docker Hub'
+[2025-05-11 04:39:26Z INFO StepsRunner] Evaluating: success()
+[2025-05-11 04:39:26Z INFO StepsRunner] Result: false
+[2025-05-11 04:39:26Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-05-11 04:39:26Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-05-11 04:39:26Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-05-11 04:39:26Z INFO StepsRunner] Processing step: DisplayName='Push Backend image to Docker Hub'
+[2025-05-11 04:39:26Z INFO StepsRunner] Evaluating: success()
+[2025-05-11 04:39:26Z INFO StepsRunner] Result: false
+[2025-05-11 04:39:26Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-05-11 04:39:26Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-05-11 04:39:26Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-05-11 04:39:26Z INFO StepsRunner] Processing step: DisplayName='Deploy to Minikube'
+[2025-05-11 04:39:26Z INFO StepsRunner] Evaluating: success()
+[2025-05-11 04:39:26Z INFO StepsRunner] Result: false
+[2025-05-11 04:39:26Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-05-11 04:39:26Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-05-11 04:39:26Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-05-11 04:39:26Z INFO StepsRunner] Processing step: DisplayName='Verify deployment'
+[2025-05-11 04:39:26Z INFO StepsRunner] Evaluating: success()
+[2025-05-11 04:39:26Z INFO StepsRunner] Result: false
+[2025-05-11 04:39:26Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-05-11 04:39:26Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-05-11 04:39:26Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-05-11 04:39:26Z INFO StepsRunner] Processing step: DisplayName='Get Frontend URL'
+[2025-05-11 04:39:26Z INFO StepsRunner] Evaluating: success()
+[2025-05-11 04:39:26Z INFO StepsRunner] Result: false
+[2025-05-11 04:39:26Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-05-11 04:39:26Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-05-11 04:39:26Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-05-11 04:39:26Z INFO StepsRunner] Processing step: DisplayName='Post Checkout code'
+[2025-05-11 04:39:26Z INFO StepsRunner] Evaluating: always()
+[2025-05-11 04:39:26Z INFO StepsRunner] Result: true
+[2025-05-11 04:39:26Z INFO StepsRunner] Starting the step.
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:39:26Z INFO StepsRunner] Which2: 'chcp'
+[2025-05-11 04:39:26Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper] Starting process:
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   Working directory: 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper] Process started with process id 2140, waiting for process exit.
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper] Finished process 2140 with exit code 0, and elapsed time 00:00:00.0104984.
+[2025-05-11 04:39:26Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Actions': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions'
+[2025-05-11 04:39:26Z INFO ActionManager] Load action that reference repository from 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions\actions\checkout\v3'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Actions': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions'
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 67,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 68,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-05-11 04:39:26Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-05-11 04:39:26Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-05-11 04:39:26Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Temp': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp'
+[2025-05-11 04:39:26Z INFO ExecutionContext] Write event payload to D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp\_github_workflow\event.json
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Work': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Temp': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp'
+[2025-05-11 04:39:26Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "***/SCD_Project"
+}
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 50,
+  "col": 14,
+  "lit": "true"
+}
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 55,
+  "col": 14,
+  "lit": "true"
+}
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 60,
+  "col": 14,
+  "lit": ""
+}
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": "true"
+}
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 67,
+  "col": 14,
+  "lit": "1"
+}
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 70,
+  "col": 14,
+  "lit": "false"
+}
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "false"
+}
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "false"
+}
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "true"
+}
+[2025-05-11 04:39:26Z INFO ActionManifestManager] Input 'github-server-url': default value evaluate result: ""
+[2025-05-11 04:39:26Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-05-11 04:39:26Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-05-11 04:39:26Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-05-11 04:39:26Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-05-11 04:39:26Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-05-11 04:39:26Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-05-11 04:39:26Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-05-11 04:39:26Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-05-11 04:39:26Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-05-11 04:39:26Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-05-11 04:39:26Z INFO ActionCommandManager] Register action command extension for command error
+[2025-05-11 04:39:26Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-05-11 04:39:26Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-05-11 04:39:26Z INFO ActionCommandManager] Register action command extension for command group
+[2025-05-11 04:39:26Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-05-11 04:39:26Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:39:26Z INFO HostContext] Well known directory 'Externals': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\externals'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper] Starting process:
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   File name: 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\externals\node20\bin\node.exe'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   Arguments: '"D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_actions\actions\checkout\v3\dist/index.js"'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   Working directory: 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\SCD_Project\SCD_Project'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-05-11 04:39:26Z INFO ProcessInvokerWrapper] Process started with process id 17124, waiting for process exit.
+[2025-05-11 04:39:26Z INFO AddMaskCommandExtension] Add new secret mask with length of 32
+[2025-05-11 04:39:26Z INFO JobServerQueue] Try to append 1 batches web console lines for record '58672ea0-caf5-50fe-3716-a9b7ff5776e2', success rate: 1/1.
+[2025-05-11 04:39:26Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e1981007-f4ed-425e-8cfe-302d1fc17f35', success rate: 1/1.
+[2025-05-11 04:39:26Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-05-11 04:39:26Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag\blocks\176c3ff7-fc8c-4385-9160-ee2d5b48b3d3_58672ea0-caf5-50fe-3716-a9b7ff5776e2.1
+[2025-05-11 04:39:27Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e1981007-f4ed-425e-8cfe-302d1fc17f35', success rate: 1/1.
+[2025-05-11 04:39:27Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-05-11 04:39:27Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2025-05-11 04:39:27Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-05-11 04:39:27Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-05-11 04:39:27Z INFO ProcessInvokerWrapper] Finished process 17124 with exit code 0, and elapsed time 00:00:01.5772968.
+[2025-05-11 04:39:27Z INFO CreateStepSummaryCommand] Step Summary file (D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp\_runner_file_commands\step_summary_c5caf8e1-e337-4873-ace2-0e176d0ce529) is empty; skipping attachment upload
+[2025-05-11 04:39:27Z INFO StepsRunner] Step result: 
+[2025-05-11 04:39:27Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v3",
+  "type": "node20",
+  "stage": "Post",
+  "stepId": "e1981007-f4ed-425e-8cfe-302d1fc17f35",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 2,
+  "startTime": "2025-05-11T04:39:26.1463105Z",
+  "finishTime": "2025-05-11T04:39:27.7466161Z"
+}.
+[2025-05-11 04:39:27Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2025-05-11 04:39:27Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-05-11 04:39:27Z INFO JobRunner] Finalize job.
+[2025-05-11 04:39:27Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:39:27Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:39:27Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:39:27Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:39:27Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:39:27Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:39:27Z INFO JobExtension] Initialize Env context
+[2025-05-11 04:39:27Z INFO JobExtension] Initialize steps context
+[2025-05-11 04:39:27Z INFO JobExtension] Total accessible running process: 325.
+[2025-05-11 04:39:27Z INFO JobExtension] Inspecting process environment variables. PID: 12044 (chrome)
+[2025-05-11 04:39:27Z INFO JobExtension] Inspecting process environment variables. PID: 15612 (backgroundTaskHost)
+[2025-05-11 04:39:27Z INFO JobExtension] Inspecting process environment variables. PID: 8572 (backgroundTaskHost)
+[2025-05-11 04:39:27Z INFO JobExtension] Inspecting process environment variables. PID: 8788 (WmiPrvSE)
+[2025-05-11 04:39:27Z WARN JobExtension] Ignore exception during read process environment variables: Access is denied.
+[2025-05-11 04:39:27Z INFO JobExtension] Wait for all connectivity checks to finish.
+[2025-05-11 04:39:27Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2025-05-11 04:39:27Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2025-05-11 04:39:27Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2025-05-11 04:39:27Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2025-05-11 04:39:27Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2025-05-11 04:39:27Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2025-05-11 04:39:27Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2025-05-11 04:39:27Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "ca769243-205c-4766-bdc1-b5c1444208e4",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2025-05-11T04:39:27.7503647Z",
+  "finishTime": "2025-05-11T04:39:27.7859796Z"
+}.
+[2025-05-11 04:39:27Z INFO JobRunner] Job result after all job steps finish: Failed
+[2025-05-11 04:39:27Z INFO JobRunner] Completing the job execution context.
+[2025-05-11 04:39:27Z INFO JobRunner] Shutting down the job server queue.
+[2025-05-11 04:39:27Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2025-05-11 04:39:28Z INFO JobServerQueue] All queue process task stopped.
+[2025-05-11 04:39:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'ca769243-205c-4766-bdc1-b5c1444208e4', success rate: 1/1.
+[2025-05-11 04:39:28Z INFO JobServerQueue] Web console line queue drained.
+[2025-05-11 04:39:28Z INFO JobServerQueue] Uploading 3 files in one shot.
+[2025-05-11 04:39:30Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2025-05-11 04:39:30Z INFO JobServerQueue] File upload queue drained.
+[2025-05-11 04:39:30Z INFO JobServerQueue] Starting results-based upload queue...
+[2025-05-11 04:39:30Z INFO JobServerQueue] Uploading 3 file(s) in one shot through results service.
+[2025-05-11 04:39:30Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-05-11 04:39:30Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag\blocks\176c3ff7-fc8c-4385-9160-ee2d5b48b3d3_e1981007-f4ed-425e-8cfe-302d1fc17f35.1
+[2025-05-11 04:39:31Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-05-11 04:39:31Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag\blocks\176c3ff7-fc8c-4385-9160-ee2d5b48b3d3_ca769243-205c-4766-bdc1-b5c1444208e4.1
+[2025-05-11 04:39:32Z INFO JobServerQueue] Got a job log file to send to results service.
+[2025-05-11 04:39:32Z INFO JobServerQueue] Starting upload of job log file to results service ResultsLog, D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag\blocks\176c3ff7-fc8c-4385-9160-ee2d5b48b3d3_2fadb47e-1d34-541b-cb18-f3a121ea6ec1.1
+[2025-05-11 04:39:35Z INFO JobServerQueue] Tried to upload 3 file(s) to results, success rate: 3/3.
+[2025-05-11 04:39:35Z INFO JobServerQueue] Results upload queue drained.
+[2025-05-11 04:39:36Z INFO JobServerQueue] Timeline update queue drained.
+[2025-05-11 04:39:36Z INFO JobServerQueue] Disposing job server ...
+[2025-05-11 04:39:36Z INFO JobServerQueue] Disposing results server ...
+[2025-05-11 04:39:36Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2025-05-11 04:39:36Z INFO JobServerQueue] Actions upload time: 4593 ms, Result upload time: 11488 ms
+[2025-05-11 04:39:36Z INFO TempDirectoryManager] Cleaning runner temp folder: D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_work\_temp
+[2025-05-11 04:39:36Z INFO HostContext] Well known directory 'Bin': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\bin'
+[2025-05-11 04:39:36Z INFO HostContext] Well known directory 'Root': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner'
+[2025-05-11 04:39:36Z INFO HostContext] Well known directory 'Diag': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag'
+[2025-05-11 04:39:36Z INFO HostContext] Well known config file 'Telemetry': 'D:\FAST University\SEMESTER 6\SCD\Project\actions-runner\actions-runner\actions-runner\_diag\.telemetry'
+[2025-05-11 04:39:36Z INFO JobRunner] Raising job completed event
+[2025-05-11 04:39:36Z INFO Worker] Job completed.
