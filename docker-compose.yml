@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  frontend:
+    image: mern-frontend:latest
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - mern-network
+
+  backend:
+    image: mern-backend:latest
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/mern-app
+    depends_on:
+      - mongodb
+    networks:
+      - mern-network
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - mern-network
+
+networks:
+  mern-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
