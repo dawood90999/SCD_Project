@@ -1,0 +1,88 @@
+MERN Application Deployment Journey - Phase 1
+===========================================
+
+Sequence of Commands and Steps:
+------------------------------
+
+1. Initial Setup:
+   - Created Dockerfiles for frontend and backend
+   - Created .dockerignore files
+   - Set up TypeScript configuration
+   - Created Kubernetes configuration files
+
+2. Docker Build Commands:
+   docker build -t frontend:latest ./frontend
+   docker build -t backend:latest ./backend
+
+3. Kubernetes Setup:
+   minikube start
+   minikube docker-env | Invoke-Expression  # For Windows PowerShell
+
+4. Kubernetes Deployments:
+   kubectl apply -f k8s/namespace.yaml
+   kubectl apply -f k8s/mongodb.yaml
+   kubectl apply -f k8s/backend.yaml
+   kubectl apply -f k8s/frontend.yaml
+
+5. Docker Hub Push Commands:
+   docker login
+   docker tag frontend:latest dawoodhussain/mern-frontend:latest
+   docker tag backend:latest dawoodhussain/mern-backend:latest
+   docker push dawoodhussain/mern-frontend:latest
+   docker push dawoodhussain/mern-backend:latest
+
+6. Cleanup Commands:
+   kubectl delete namespace mern-app
+   minikube stop
+   docker-compose down
+
+Challenges Encountered:
+---------------------
+
+1. TypeScript Build Issues:
+   - Challenge: Frontend container build failing due to TypeScript errors
+   - Solution: Created .dockerignore file and modified TypeScript configuration to handle unused imports
+
+2. Docker Daemon Connection:
+   - Challenge: Docker commands failing with "connection refused" errors
+   - Solution: Ensured Docker Desktop was running and properly initialized
+
+3. Image Pull Issues in Kubernetes:
+   - Challenge: Pods stuck in "ImagePullBackOff" state
+   - Solution: Added imagePullPolicy: Never to deployment configurations to use local images
+
+4. MongoDB Connection:
+   - Challenge: Backend unable to connect to MongoDB
+   - Solution: Properly configured MongoDB service name and connection string in backend deployment
+
+5. Minikube Service Access:
+   - Challenge: Frontend service not accessible
+   - Solution: Used minikube service command to expose the LoadBalancer service
+
+6. Docker Hub Authentication:
+   - Challenge: Docker login issues
+   - Solution: Used web-based authentication method for Docker Hub login
+
+7. Container Resource Management:
+   - Challenge: Containers using too much memory/CPU
+   - Solution: Added resource limits and requests in Kubernetes deployments
+
+8. Persistent Storage:
+   - Challenge: MongoDB data not persisting between pod restarts
+   - Solution: Implemented volume mounts for MongoDB data
+
+9. Network Configuration:
+   - Challenge: Services not able to communicate with each other
+   - Solution: Properly configured service names and ports in Kubernetes
+
+10. Development Environment:
+    - Challenge: Inconsistent behavior between local and containerized environments
+    - Solution: Standardized environment variables and configurations across all environments
+
+Lessons Learned:
+--------------
+1. Always ensure Docker Desktop is running before executing Docker commands
+2. Use imagePullPolicy: Never when working with locally built images in Minikube
+3. Proper namespace management is crucial for Kubernetes deployments
+4. Regular cleanup of resources prevents conflicts and saves system resources
+5. Proper documentation of configurations helps in troubleshooting 

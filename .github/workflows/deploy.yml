@@ -1,0 +1,78 @@
+name: Build and Deploy MERN App to Minikube
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Start Minikube
+        run: |
+          minikube start
+          minikube status
+
+      - name: Set up Docker to use Minikube's environment
+        run: |
+          echo "Configuring Docker to use Minikube's daemon..."
+          eval $(minikube docker-env)
+
+      - name: Build Frontend Docker image
+        run: |
+          cd frontend
+          docker build -t dawoodhussain/mern-frontend:latest .
+
+      - name: Build Backend Docker image
+        run: |
+          cd backend
+          docker build -t dawoodhussain/mern-backend:latest .
+
+      - name: Login to Docker Hub
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+      - name: Push Frontend image to Docker Hub
+        run: docker push dawoodhussain/mern-frontend:latest
+
+      - name: Push Backend image to Docker Hub
+        run: docker push dawoodhussain/mern-backend:latest
+
+      - name: Deploy to Minikube
+        run: |
+          # Create namespace if it doesn't exist
+          kubectl create namespace mern-app --dry-run=client -o yaml | kubectl apply -f -
+
+          # Apply MongoDB deployment
+          kubectl apply -f k8s/mongodb.yaml
+
+          # Apply Backend deployment
+          kubectl apply -f k8s/backend.yaml
+
+          # Apply Frontend deployment
+          kubectl apply -f k8s/frontend.yaml
+
+          # Wait for deployments to be ready
+          kubectl rollout status deployment/mongodb -n mern-app
+          kubectl rollout status deployment/backend -n mern-app
+          kubectl rollout status deployment/frontend -n mern-app
+
+      - name: Verify deployment
+        run: |
+          echo "Checking pod status..."
+          kubectl get pods -n mern-app
+          echo "Checking services..."
+          kubectl get svc -n mern-app
+
+      - name: Get Frontend URL
+        run: |
+          echo "Frontend URL:"
+          minikube service frontend -n mern-app --url
