@@ -82,10 +82,4 @@ jobs:
 
      
 
-      - name: Cleanup Minikube Tunnel
-        shell: pwsh
-        if: always()
-        run: |
-          Write-Output "Stopping minikube tunnel..."
-          Stop-Process -Name "minikube" -Forceσει
 
