@@ -21,7 +21,7 @@ spec:
             - containerPort: 80
           env:
             - name: VITE_REACT_APP_API_URL
-              value: "http://backend:5000/api"
+              value: "http://127.0.0.1:5000/api/" # Replace <CLUSTER-IP> with actual IP
 ---
 apiVersion: v1
 kind: Service
@@ -34,4 +34,5 @@ spec:
   ports:
     - port: 80
       targetPort: 80
-  type: LoadBalancer
+      nodePort: 30007
+  type: NodePort
