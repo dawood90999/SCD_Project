@@ -1,11 +1,11 @@
-```yaml
+
 name: Build and Deploy MERN App to Minikube
 
 on:
   push:
     branches:
-      - main
-      - master
+      - testing
+      
 
 jobs:
   build-deploy:
