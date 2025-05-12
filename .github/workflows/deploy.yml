@@ -80,29 +80,6 @@ jobs:
           kubectl get pods -n mern-app
           kubectl get svc -n mern-app
 
-      - name: Get Frontend URL
-        shell: pwsh
-        run: |
-          $frontendUrl = minikube service frontend -n mern-app --url
-          Write-Output "✅ Frontend is accessible at: $frontendUrl"
+     
 
-      - name: Verify Backend Accessibility
-        shell: pwsh
-        run: |
-          Write-Output "Verifying backend accessibility..."
-          $backendUrl = "http://127.0.0.1:5000/api/"
-          $response = Invoke-WebRequest -Uri $backendUrl -UseBasicParsing -ErrorAction SilentlyContinue
-          if ($response.StatusCode -eq 200) {
-            Write-Output "✅ Backend is accessible at: $backendUrl"
-          } else {
-            Write-Output "❌ Failed to access backend at: $backendUrl"
-            exit 1
-          }
-
-      - name: Cleanup Minikube Tunnel
-        shell: pwsh
-        if: always()
-        run: |
-          Write-Output "Stopping minikube tunnel..."
-          Stop-Process -Name "minikube" -Forceσει
-
+    
