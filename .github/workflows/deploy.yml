@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - testing
-      
+      - master
 
 jobs:
   build-deploy:
@@ -80,50 +80,12 @@ jobs:
           kubectl get pods -n mern-app
           kubectl get svc -n mern-app
 
-      - name: Get Frontend URL
-        shell: pwsh
-        run: |
-          $ip = minikube ip
-          $port = kubectl get svc frontend -n mern-app -o=jsonpath="{.spec.ports[0].nodePort}"
-          $frontendUrl = "http://${ip}:${port}"
-          Write-Output "✅ Frontend is accessible at: $frontendUrl"
-          # Verify frontend accessibility
-          try {
-            $response = Invoke-WebRequest -Uri $frontendUrl -UseBasicParsing -TimeoutSec 10
-            if ($response.StatusCode -eq 200) {
-              Write-Output "✅ Frontend responded with status 200"
-            } else {
-              Write-Output "⚠️ Frontend responded with status: $($response.StatusCode)"
-            }
-          } catch {
-            Write-Output "❌ Failed to access frontend at: $frontendUrl"
-            Write-Output $_.Exception.Message
-            exit 1
-          }
-
-      - name: Verify Backend Accessibility
-        shell: pwsh
-        run: |
-          Write-Output "Verifying backend accessibility..."
-          $backendUrl = "http://127.0.0.1:5000/api/"
-          try {
-            $response = Invoke-WebRequest -Uri $backendUrl -UseBasicParsing -TimeoutSec 10
-            if ($response.StatusCode -eq 200) {
-              Write-Output "✅ Backend is accessible at: $backendUrl"
-            } else {
-              Write-Output "⚠️ Backend responded with status auparavant: $($response.StatusCode)"
-            }
-          } catch {
-            Write-Output "❌ Failed to access backend at: $backendUrl"
-            Write-Output $_.Exception.Message
-            exit 1
-          }
+     
 
       - name: Cleanup Minikube Tunnel
         shell: pwsh
         if: always()
         run: |
           Write-Output "Stopping minikube tunnel..."
-          Stop-Process -Name "minikube" -Force -ErrorAction SilentlyContinue
-          Get-Content tunnel.log  # Display final tunnel output for debugging
-          Get-Content tunnel.err  # Display tunnel errors, if any
+          Stop-Process -Name "minikube" -Forceσει
+
